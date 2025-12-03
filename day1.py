@@ -13,6 +13,7 @@ def first():
 
     return zero_count
 
+
 def second():
     current_position = 50
     zero_count = 0
@@ -37,6 +38,7 @@ def second():
             zero_count += crosses
 
     return zero_count
+
 
 print(first())
 print(second())
