@@ -1,6 +1,3 @@
-from operator import index
-
-
 def get_joltage(battery_bank: list[int]):
     tens_val = battery_bank[0]
     tens_idx = 0
