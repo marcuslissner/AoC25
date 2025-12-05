@@ -21,6 +21,7 @@ def first():
 def second():
     edges = []
 
+    # 1. save all numbers as (value, edge_type) tuples
     with open("input5") as file:
         row = next(file)
         while row != "\n":
@@ -29,24 +30,27 @@ def second():
             edges.append((int(upper), ')'))
             row = next(file)
 
+    # 2. sort by key
     edges = sorted(edges)
 
     id_count = 0
     lower = 0
-    level = -1
+    depth = -1
+    # 3. count parenthesis depth
     for edge, edge_type in edges:
         # new range case
-        if level == -1:
+        if depth == -1:
             lower = edge
-            level = 1
+            depth = 1
             continue
         if edge_type == '(':
-            level += 1
+            depth += 1
         if edge_type == ')':
-            level -= 1
-        if level == 0:
+            depth -= 1
+        # end of range, reset depth
+        if depth == 0:
             id_count += edge - lower + 1
-            level = -1
+            depth = -1
 
     return id_count
 
