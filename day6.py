@@ -59,7 +59,7 @@ def second():
         else:
             current_column.append(sub_column_sum)
 
-    # last sub_column
+    # last column
     if operations[column_idx] == '+':
         column_sums += sum(current_column)
     else:
